@@ -6,124 +6,7 @@ import { useRouter } from "next/navigation"
 import { ArrowLeft, BookOpen, GraduationCap, Calendar, ChevronRight, X, Award, Clock, Bookmark } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import Loading from '@/components/ui/loading'
-
-interface CourseItem {
-  date: string
-  title: string
-  description: string
-  category?: string
-  detail?: string
-  grade?: string
-  semester?: string
-}
-
-const courses: CourseItem[] = [
-  {
-    date: "2022 - Now",
-    title: "University of California, Santa Cruz",
-    description: "Computer Science Major | GPA: 3.84",
-    category: "university",
-    detail: "在加州大学圣克鲁兹分校攻读计算机科学学士学位，专注于软件工程和人工智能方向。参与多个研究项目和实习，积累了丰富的实践经验。",
-    grade: "3.84",
-    semester: "2022 - 2026"
-  },
-  {
-    date: "Fall 2022",
-    title: "CSE 20: Beginning Python",
-    description: "Data Types | Control Flow | OOP",
-    category: "programming",
-    detail: "学习Python编程基础，包括数据类型、控制流和面向对象编程。通过实践项目掌握了Python的核心概念和最佳实践。",
-    grade: "A+",
-    semester: "Fall 2022"
-  },
-  {
-    date: "Winter 2023",
-    title: "CSE 30: Prog Abs Python",
-    description: "Data Structures | Algorithm Design | OOP",
-    category: "programming"
-  },
-  {
-    date: "Winter 2023",
-    title: "CMPM 80K: Game Design Fundamentals",
-    description: "Game Design Principles | Game Analysis | Gdevelop 5",
-    category: "design"
-  },
-  {
-    date: "Spring 2023",
-    title: "CSE 13S: Computer Systems & C Programming",
-    description: "C Programming | Command Line & Shell Programming | Debugging & Source Control",
-    category: "systems"
-  },
-  {
-    date: "Fall 2023",
-    title: "MATH 21: Linear Algebra",
-    description: "Linear Equations | Matrices & Determinants | Vector Spaces & Linear Transformations",
-    category: "math"
-  },
-  {
-    date: "Winter 2024",
-    title: "CSE 16: Applied Discrete Mathematics",
-    description: "Sets, Functions & Relations | Graph Theory | Counting Methods & Recurrence Relations",
-    category: "math"
-  },
-  {
-    date: "Spring 2024",
-    title: "CSE 101: Algorithms & Abstract Data Structures",
-    description: "Abstract Data Structures | Algorithm Design & Analysis | C/C++ Programming Practice",
-    category: "algorithms"
-  },
-  {
-    date: "Spring 2024",
-    title: "STAT 131: Intro Probability Theory",
-    description: "Bayes Theorem | Central Limit Theorem | Markov Chains",
-    category: "math"
-  },
-  {
-    date: "Fall 2024",
-    title: "CSE 40: Intro to Machine Learning",
-    description: "Data Cleaning | Data Analysis | Optimization Methods | Data Visualization",
-    category: "ai"
-  },
-  {
-    date: "Winter 2025",
-    title: "CSE 102: Introduction to Analysis of Algorithms",
-    description: "RAM Computation Model | Divide & Conquer | Branch & Bound | Dynamic Programming",
-    category: "algorithms"
-  },
-  {
-    date: "Winter 2025",
-    title: "CSE 120: Computer Architecture",
-    description: "Processor Design | Memory Hierarchy | Parallel Computing",
-    category: "systems"
-  },
-  {
-    date: "Winter 2025",
-    title: "CSE 130: Computer Systems Design Principles",
-    description: "Concurrency & Synchronization | Layered Design | System Performance Optimization",
-    category: "systems"
-  }
-]
-
-const categories = [
-  { id: "all", name: "全部课程", icon: "📚" },
-  { id: "university", name: "大学经历", icon: "🎓" },
-  { id: "programming", name: "编程基础", icon: "💻" },
-  { id: "algorithms", name: "算法与数据结构", icon: "🔍" },
-  { id: "systems", name: "系统与架构", icon: "⚙️" },
-  { id: "math", name: "数学理论", icon: "📐" },
-  { id: "ai", name: "人工智能", icon: "🤖" },
-  { id: "design", name: "设计", icon: "🎨" }
-]
-
-const categoryColors = {
-  university: "from-blue-400 to-indigo-500",
-  programming: "from-emerald-400 to-teal-500",
-  algorithms: "from-purple-400 to-violet-500",
-  systems: "from-orange-400 to-amber-500",
-  math: "from-rose-400 to-pink-500",
-  ai: "from-cyan-400 to-sky-500",
-  design: "from-yellow-400 to-amber-500"
-}
+import { CourseItem, courses, categories, categoryColors } from './data'
 
 export default function EducationPage() {
   const [selectedCategory, setSelectedCategory] = useState("all")
@@ -147,8 +30,35 @@ export default function EducationPage() {
   }
 
   const filteredCourses = selectedCategory === "all" 
-    ? courses 
-    : courses.filter(course => course.category === selectedCategory)
+    ? courses.sort((a, b) => {
+        // 将日期字符串转换为可比较的格式
+        const getDateValue = (dateStr: string) => {
+          if (dateStr.includes("Now")) return new Date().getTime();
+          if (dateStr.includes("-")) {
+            const [start, end] = dateStr.split("-").map(d => d.trim());
+            return new Date(end || start).getTime();
+          }
+          const [season, year] = dateStr.split(" ");
+          const seasonMap = { "Spring": 0, "Summer": 1, "Fall": 2, "Winter": 3 };
+          return new Date(parseInt(year), seasonMap[season as keyof typeof seasonMap]).getTime();
+        };
+        return getDateValue(b.date) - getDateValue(a.date);
+      })
+    : courses
+        .filter(course => course.category === selectedCategory)
+        .sort((a, b) => {
+          const getDateValue = (dateStr: string) => {
+            if (dateStr.includes("Now")) return new Date().getTime();
+            if (dateStr.includes("-")) {
+              const [start, end] = dateStr.split("-").map(d => d.trim());
+              return new Date(end || start).getTime();
+            }
+            const [season, year] = dateStr.split(" ");
+            const seasonMap = { "Spring": 0, "Summer": 1, "Fall": 2, "Winter": 3 };
+            return new Date(parseInt(year), seasonMap[season as keyof typeof seasonMap]).getTime();
+          };
+          return getDateValue(b.date) - getDateValue(a.date);
+        });
 
   return (
     <main className="h-[calc(100vh-64px)] bg-black text-white flex flex-col">
@@ -171,15 +81,15 @@ export default function EducationPage() {
                 whileTap={{ scale: 0.95 }}
               >
                 <ArrowLeft className="mr-2 h-4 w-4" />
-                返回首页
+                Back to Home
               </motion.button>
             </div>
 
             <div className="px-6 md:px-12 pb-8 flex-1 flex items-start">
               <div className="container mx-auto">
                 <div className="text-center mb-12">
-                  <h1 className="text-3xl sm:text-4xl font-bold mb-2">教育经历</h1>
-                  <p className="text-sm opacity-60">探索我的学习历程和专业知识</p>
+                  <h1 className="text-3xl sm:text-4xl font-bold mb-2">Education</h1>
+                  <p className="text-sm opacity-60">Explore my academic journey and expertise</p>
                 </div>
 
                 {/* 分类选择器 */}
@@ -295,9 +205,22 @@ export default function EducationPage() {
                     animate={{ scale: 1, opacity: 1 }}
                     exit={{ scale: 0.95, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeOut" }}
-                    className="bg-black/90 rounded-lg p-8 max-w-2xl w-full backdrop-blur-md relative"
+                    className="bg-black/80 rounded-lg p-8 max-w-2xl w-full backdrop-blur-xl relative group"
                     onClick={(e) => e.stopPropagation()}
                   >
+                    {/* 装饰性边框 */}
+                    <div className="absolute inset-0 rounded-lg border border-white/10 group-hover:border-white/20 transition-colors" />
+                    
+                    {/* 右上角装饰 */}
+                    <div className="absolute top-0 right-0 w-12 h-12">
+                      <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-white/20 group-hover:border-white/30 transition-colors" />
+                    </div>
+
+                    {/* 左下角装饰 */}
+                    <div className="absolute bottom-0 left-0 w-12 h-12">
+                      <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white/20 group-hover:border-white/30 transition-colors" />
+                    </div>
+
                     {/* 关闭按钮 */}
                     <motion.button
                       initial={{ opacity: 0, scale: 0.8 }}
@@ -352,7 +275,7 @@ export default function EducationPage() {
                         className="space-y-6"
                       >
                         <div>
-                          <h4 className="text-lg font-semibold mb-2">课程描述</h4>
+                          <h4 className="text-lg font-semibold mb-2">Course Description</h4>
                           <p className="text-base opacity-70 leading-relaxed">
                             {selectedCourse.description}
                           </p>
@@ -360,7 +283,7 @@ export default function EducationPage() {
 
                         {selectedCourse.detail && (
                           <div>
-                            <h4 className="text-lg font-semibold mb-2">详细内容</h4>
+                            <h4 className="text-lg font-semibold mb-2">Details</h4>
                             <p className="text-base opacity-70 leading-relaxed">
                               {selectedCourse.detail}
                             </p>
@@ -372,7 +295,7 @@ export default function EducationPage() {
                             <div className="flex items-center gap-2">
                               <Clock className="h-5 w-5 opacity-60" />
                               <div>
-                                <p className="text-sm opacity-60">学期</p>
+                                <p className="text-sm opacity-60">Semester</p>
                                 <p className="text-base font-medium">{selectedCourse.semester}</p>
                               </div>
                             </div>
@@ -381,7 +304,7 @@ export default function EducationPage() {
                             <div className="flex items-center gap-2">
                               <Bookmark className="h-5 w-5 opacity-60" />
                               <div>
-                                <p className="text-sm opacity-60">成绩</p>
+                                <p className="text-sm opacity-60">Grade</p>
                                 <p className="text-base font-medium">{selectedCourse.grade}</p>
                               </div>
                             </div>

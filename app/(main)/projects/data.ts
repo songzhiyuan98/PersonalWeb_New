@@ -17,8 +17,8 @@ export interface Project {
 export const allProjects: Project[] = [
   {
     id: "01",
-    title: "个人网站",
-    description: "使用 Next.js 和 Tailwind CSS 构建的个人作品集网站，展示我的项目经历和技术能力。",
+    title: "Personal Website",
+    description: "A personal portfolio website built with Next.js and Tailwind CSS, showcasing my project experience and technical skills.",
     period: "2024.01 - 2024.02",
     demoLink: "https://zhiyuansong.com",
     githubLink: "https://github.com/zhiyuansong/PersonalWeb_New",
@@ -35,17 +35,17 @@ export const allProjects: Project[] = [
       "Vercel"
     ],
     detail: [
-      "使用 Next.js 13+ 和 App Router 构建现代化的个人网站",
-      "采用 Tailwind CSS 实现响应式设计和动画效果",
-      "使用 Framer Motion 添加流畅的页面过渡和交互效果",
-      "实现深色模式切换和国际化支持",
-      "优化 SEO 和性能，确保良好的用户体验"
+      "Built a modern personal website using Next.js 13+ and App Router",
+      "Implemented responsive design and animations with Tailwind CSS",
+      "Added smooth page transitions and interactive effects with Framer Motion",
+      "Implemented dark mode toggle and internationalization support",
+      "Optimized SEO and performance for better user experience"
     ],
     achievements: [
-      "页面加载速度优化至 90+ 分",
-      "实现完全响应式设计，适配各种设备",
-      "添加优雅的动画效果提升用户体验",
-      "使用 TypeScript 确保代码质量和类型安全"
+      "Optimized page load speed to 90+ score",
+      "Achieved fully responsive design for all devices",
+      "Added elegant animations to enhance user experience",
+      "Ensured code quality and type safety with TypeScript"
     ],
     color: "bg-[#E99A9A]",
     textColor: "text-black",
@@ -54,41 +54,41 @@ export const allProjects: Project[] = [
   {
     id: "02",
     title: "AI Resume Analyzer",
-    description: "AI驱动的简历分析平台，解决简历与职位不匹配和低效申请分析问题",
-    period: "2025.02 - 至今",
+    description: "An AI-powered resume analysis platform that addresses resume-job mismatch and inefficient application analysis issues",
+    period: "2025.02 - Present",
     color: "bg-[#ECD98C]",
     textColor: "text-black",
     technologies: ["MERN", "OpenAI API", "PDF Parsing", "Google OAuth", "MongoDB"],
     detail: [
-      "设计和构建AI驱动的平台，解决简历与职位不匹配和低效申请分析问题",
-      "通过pdf-parse提取简历文本，结合正则表达式和GPT分析，达到100%的识别准确率",
-      "集成OpenAI API进行匹配评分、定制简历反馈和面试问题生成",
-      "构建基于会话的引擎，具有多线程上下文控制，减少冗余并节省70%的token",
-      "实现一键JD粘贴，通过token优化的预处理实现更快、更便宜的分析",
-      "使用Google OAuth和MongoDB实现用户登录、历史记录跟踪和简历/职位重用"
+      "Built AI platform to solve resume-job mismatch and inefficient analysis",
+      "Achieved 100% accuracy with pdf-parse and GPT analysis",
+      "Integrated OpenAI API for matching scores and feedback",
+      "Built session engine with context control, saving 70% tokens",
+      "Implemented one-click JD pasting with optimized preprocessing",
+      "Used Google OAuth and MongoDB for user management"
     ],
     images: ["/projects/ai-resume-1.jpg", "/projects/ai-resume-2.jpg"],
-    achievements: ["100%识别准确率", "节省70%token", "一键分析"],
+    achievements: ["100% recognition accuracy", "70% token savings", "One-click analysis"],
     rating: 4.8
   },
   {
     id: "03",
     title: "AnimeHub",
-    description: "动漫社区平台，提供动漫信息、评分和用户管理功能",
+    description: "An anime community platform providing anime information, ratings, and user management features",
     period: "2024.06 - 2024.11",
     color: "bg-[#9AE9E9]",
     textColor: "text-black",
     technologies: ["MERN", "Netlify", "Heroku", "JWT", "i18n", "Ant Design", "Material-UI"],
     detail: [
-      "实现解耦架构，在Netlify和Heroku上分别部署，确保可扩展性",
-      "使用Express.js构建RESTful API，实现评分、筛选和用户管理，提高后端效率",
-      "通过嵌入ID数组优化MongoDB，简化数据访问并减少查询开销",
-      "实现JWT认证，使用Axios拦截器进行令牌刷新和无缝API重试",
-      "使用i18n添加多语言支持，在用户账户中存储语言偏好以实现持久化定制",
-      "使用Ant Design和Material-UI增强用户界面，提高可用性和视觉吸引力"
+      "Implemented decoupled architecture with separate deployments on Netlify and Heroku for scalability",
+      "Built RESTful API with Express.js for backend efficiency",
+      "Optimized MongoDB with embedded ID arrays to simplify data access and reduce query overhead",
+      "Implemented JWT authentication with Axios interceptors for token refresh and seamless API retry",
+      "Added multilingual support with i18n for persistent customization",
+      "Enhanced UI with Ant Design and Material-UI to improve usability and visual appeal"
     ],
     images: ["/projects/animehub-1.jpg", "/projects/animehub-2.jpg"],
-    achievements: ["解耦架构", "多语言支持", "优化查询"],
+    achievements: ["Decoupled architecture", "Multilingual support", "Optimized queries"],
     rating: 4.5
   },
-] 
+]

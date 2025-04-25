@@ -15,7 +15,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const [isClient, setIsClient] = useState(false)
 
-  // 使用 useEffect 来确保只在客户端渲染
+  // Use useEffect to ensure client-side rendering only
   useEffect(() => {
     setIsClient(true)
   }, [])
@@ -33,13 +33,13 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
   }
 
   return (
-    <main className=" bg-black text-white">
+    <main className="bg-black text-white">
       <div className="w-full mx-auto sm:px-0 lg:px-0 py-4 h-[calc(100vh-64px)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
-          {/* 左侧内容 */}
+          {/* Left Content */}
           <div className="py-6 px-3 rounded-3xl">
             <div className="space-y-4">
-              {/* 基本信息 */}
+              {/* Basic Info */}
               <div>
                 <h1 className="text-3xl sm:text-4xl font-bold mb-2 text-white">{project.title}</h1>
                 <h2 className="text-2xl sm:text-3xl font-bold text-white/80 mb-3">{project.description}</h2>
@@ -54,15 +54,15 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                       rel="noopener noreferrer"
                       className="px-2 py-1 bg-white/10 rounded-full text-xs text-white/80 hover:bg-white/20 transition-colors"
                     >
-                      查看项目
+                      View Project
                     </a>
                   )}
                 </div>
               </div>
 
-              {/* 主要职责 */}
+              {/* Main Responsibilities */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">主要职责</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">Main Responsibilities</h3>
                 <div className="space-y-2">
                   {project.detail.map((item, index) => (
                     <div key={index} className="flex items-start gap-2">
@@ -73,9 +73,9 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                 </div>
               </div>
 
-              {/* 技术栈 */}
+              {/* Tech Stack */}
               <div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">技术栈</h3>
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 text-white">Tech Stack</h3>
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, index) => (
                     <span key={index} className="px-2 py-1 bg-white/10 rounded-full text-xs text-white/80">
@@ -87,14 +87,14 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
             </div>
           </div>
 
-          {/* 右侧内容 */}
+          {/* Right Content */}
           <div className="space-y-4 sm:space-y-6">
-            {/* 轮播图 */}
+            {/* Image Carousel */}
             {project.images && project.images.length > 0 && (
               <div className="relative h-60 sm:h-72 lg:h-96 rounded-3xl overflow-hidden group">
                 <Image
                   src={project.images[currentImageIndex] || "/placeholder.svg"}
-                  alt={`${project.title} 项目图片`}
+                  alt={`${project.title} project image`}
                   fill
                   className="object-cover"
                 />
@@ -118,9 +118,9 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
               </div>
             )}
 
-            {/* 两个色块 */}
+            {/* Two Color Blocks */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {/* 左侧色块 */}
+              {/* Left Block */}
               <div className="bg-[#E99A9A] text-black p-4 rounded-3xl">
                 <div className="flex mb-3">
                   <div className="flex -space-x-2">
@@ -142,7 +142,7 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
                 </div>
               </div>
 
-              {/* 右侧色块 */}
+              {/* Right Block */}
               <div className="bg-[#ECD98C] text-black p-4 rounded-3xl">
                 <div className="text-2xl font-bold mb-4">design</div>
 
@@ -163,16 +163,16 @@ export default function ProjectDetail({ project, onClose }: ProjectDetailProps) 
         </div>
       </div>
 
-      {/* 右下角返回按钮 */}
+      {/* Back Button */}
       <div className="fixed bottom-4 right-4">
         <button
           onClick={onClose}
           className="px-4 py-2 bg-zinc-800 hover:bg-zinc-700 text-white rounded-full transition-colors inline-flex items-center text-sm"
         >
           <ArrowLeft className="mr-2 h-4 w-4" />
-          返回项目列表
+          Back to Projects
         </button>
       </div>
     </main>
   )
-} 
+}

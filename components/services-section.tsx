@@ -5,8 +5,8 @@ import { SocialMediaIcon, MarketingStrategyIcon, DataAnalyticsIcon, SEOIcon } fr
 const services = [
   {
     id: "01",
-    title: "教育经历",
-    description: "我的学术背景和所获得的学位、证书",
+    title: "Education",
+    description: "My academic background, degrees and certifications",
     color: "bg-[rgb(255,182,193)]",
     textColor: "text-black",
     icon: <SocialMediaIcon />,
@@ -14,18 +14,17 @@ const services = [
   },
   {
     id: "02",
-    title: "技术展示",
-    description: "我掌握的技术栈和专业技能",
+    title: "Skills",
+    description: "My technical stack and professional skills",
     color: "bg-[rgb(198,236,38)]",
     textColor: "text-black",
     icon: <MarketingStrategyIcon />,
-    hasArrow: true,
     link: "/skills",
   },
   {
     id: "03",
-    title: "工作经历",
-    description: "我的专业工作经验和成就",
+    title: "Experience",
+    description: "My professional work experience and achievements",
     color: "bg-[rgb(255,165,0)]",
     textColor: "text-black",
     icon: <DataAnalyticsIcon />,
@@ -33,8 +32,8 @@ const services = [
   },
   {
     id: "04",
-    title: "项目展示",
-    description: "我参与开发的项目和作品集",
+    title: "Projects",
+    description: "My development projects and portfolio",
     color: "bg-white",
     textColor: "text-black",
     icon: <SEOIcon />,
@@ -59,13 +58,11 @@ export default function ServicesSection() {
 
                 {service.description && <p className="text-sm mb-4">{service.description}</p>}
 
-                {service.hasArrow && (
-                  <div className="flex justify-end">
-                    <div className="rounded-full border border-black p-2">
-                      <ArrowRight size={20} />
-                    </div>
+                <div className="flex justify-end">
+                  <div className="rounded-full border border-black p-2 transition-all duration-300 hover:scale-110 hover:bg-black hover:text-white">
+                    <ArrowRight size={20} />
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </Link>

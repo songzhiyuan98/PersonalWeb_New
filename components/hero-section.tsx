@@ -11,41 +11,41 @@ export default function HeroSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <div className="mb-12">
           <p className="mb-4 text-sm leading-relaxed">
-            Personal blog on Medium where I share my thoughts about development, AI, and creativity in the field
+            Explore my open-source projects and development journey. From web applications to AI-powered tools.
           </p>
-          <div className="mb-2">12k readers</div>
-          <a href="#" className="underline-animation font-medium">
-            Read the blog
-          </a>
-        </div>
-
-        <div className="mb-12">
-          <p className="mb-4 text-sm leading-relaxed">
-            Interview for Tech Magazine with insights about my journey, the industry, and future trends
-          </p>
-          <div className="mb-2">64k views</div>
-          <a href="#" className="underline-animation font-medium">
-            See the interview
-          </a>
-        </div>
-
-        <div className="mb-12">
-          <p className="mb-4 text-sm leading-relaxed">
-            I published a case study about a project that I did for a startup this autumn. Spoiler: it's awesome!
-          </p>
-          <div className="mb-2">12k views</div>
-          <a href="#" className="underline-animation font-medium">
-            See the case study
-          </a>
-        </div>
-
-        <div className="mb-12">
-          <p className="mb-4 text-sm leading-relaxed">
-            My GitHub profile where I share open-source projects as well as snippets from my development journey
-          </p>
-          <div className="mb-2">7.2k followers</div>
-          <a href="#" className="underline-animation font-medium">
+          <div className="mb-2">6+ Open Source Projects</div>
+          <a href="https://github.com/songzhiyuan98" target="_blank" rel="noopener noreferrer" className="underline-animation font-medium">
             Visit GitHub
+          </a>
+        </div>
+
+        <div className="mb-12">
+          <p className="mb-4 text-sm leading-relaxed">
+            Experience my work in action. Quick access to project websites and live demos showcasing my technical capabilities.
+          </p>
+          <div className="mb-2">6+ Live Demos</div>
+          <a href="/projects-demo" className="underline-animation font-medium">
+            View Projects
+          </a>
+        </div>
+
+        <div className="mb-12">
+          <p className="mb-4 text-sm leading-relaxed">
+            Connect with me professionally. Let's discuss opportunities and share insights about technology and innovation.
+          </p>
+          <div className="mb-2">Professional Network</div>
+          <a href="https://www.linkedin.com/in/zhiyuan-song-761651217/" target="_blank" rel="noopener noreferrer" className="underline-animation font-medium">
+            Visit LinkedIn
+          </a>
+        </div>
+
+        <div className="mb-12">
+          <p className="mb-4 text-sm leading-relaxed">
+            Working Paper: "Multi-organ MRI Charts Biological Aging of Seven Organs and Tissues" (Nature Aging, in preparation, 2025)
+          </p>
+          <div className="mb-2">Co-authored with M. Duggan, et al.</div>
+          <a href="#" className="underline-animation font-medium">
+            Read Abstract
           </a>
         </div>
       </div>
