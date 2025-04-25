@@ -1,3 +1,5 @@
+"use client"
+
 export default function HeroSection() {
   return (
     <section className="px-6 md:px-12 pt-12 pb-24">
