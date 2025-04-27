@@ -61,7 +61,7 @@ export default function ProjectsPage() {
   }
 
   return (
-    <main className="min-h-screen bg-white dark:bg-black text-black dark:text-white">
+    <main className="h-[calc(100vh-64px)] bg-black text-white flex flex-col">
       <AnimatePresence mode="wait">
         {isLoading ? (
           <Loading />
@@ -76,7 +76,7 @@ export default function ProjectsPage() {
             <div className="px-6 md:px-12 py-4">
               <motion.button
                 onClick={handleBack}
-                className="inline-flex items-center text-sm hover:text-gray-300 dark:hover:text-gray-700 transition-colors"
+                className="inline-flex items-center text-sm hover:text-gray-300 transition-colors"
                 whileHover={{ x: -4 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -262,23 +262,6 @@ export default function ProjectsPage() {
                 </AnimatePresence>
               </div>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* 项目详情弹窗 */}
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 dark:bg-white/95 z-50"
-          >
-            <ProjectDetail
-              project={selectedProject}
-              onClose={() => setSelectedProject(null)}
-            />
           </motion.div>
         )}
       </AnimatePresence>
