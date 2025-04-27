@@ -20,7 +20,7 @@ export const allExperiences: Experience[] = [
     period: "2023.12 - 2024.03",
     company: "Columbia University AI & Biomedical Lab",
     position: "Web Developer Intern",
-    description: "Developed a public knowledge portal platform for Columbia University's AI & Biomedical Lab, implementing interactive anatomy systems and data visualization features.",
+    description: "Led development of Columbia University's AI & Biomedical Lab public knowledge portal.",
     detailedDescription: "As a Web Development Intern at Columbia University's AI & Biomedical Lab, I led the development of a public knowledge portal platform, primarily responsible for implementing the frontend anatomy interaction system and global access data visualization module. The platform supports multi-organ information navigation and research data access, with related achievements submitted as a co-author to Nature Aging.",
     achievements: [
       "Implemented an interactive navigation system for 15+ human organs",
@@ -61,7 +61,7 @@ export const allExperiences: Experience[] = [
     period: "2022.01 - 2022.12",
     company: "3CCA Church",
     position: "Web Developer",
-    description: "Redesigned and developed a responsive website for 3CCA Church, enhancing user experience and operational efficiency.",
+    description: "Built a responsive church website with modern design",
     detailedDescription: "Redesigned and developed a responsive website for 3CCA Church, improving user experience, operational efficiency, and online interaction. The website features a modern design style, supporting church activities, audio resources, and article management functions, providing a convenient experience for church members and visitors.\n\nKey Achievements:\n- Implemented frosted glass effect as the primary design concept\n- Developed a robust event management system\n- Achieved 100% mobile compatibility\n- Improved operational efficiency by 80%",
     achievements: [
       "Implemented frosted glass effect as the primary design concept",
