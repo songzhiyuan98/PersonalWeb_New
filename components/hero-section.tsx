@@ -5,73 +5,14 @@ import { Github, Linkedin, Mail, Download, ExternalLink, ChevronDown } from "luc
 import { useEffect, useState } from "react"
 
 export default function HeroSection() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY })
-    }
-
-    window.addEventListener('mousemove', handleMouseMove)
-    return () => window.removeEventListener('mousemove', handleMouseMove)
-  }, [])
 
   return (
     <section className="px-6 md:px-12 pt-16 pb-24 bg-white dark:bg-black text-black dark:text-white relative min-h-screen flex items-center overflow-hidden">
-      {/* Animated background particles */}
-      <div className="absolute inset-0">
-        <motion.div
-          animate={{ 
-            x: [0, 100, 0],
-            y: [0, -50, 0],
-            rotate: [0, 180, 360]
-          }}
-          transition={{ 
-            duration: 15, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400/30 rounded-full"
-        />
-        <motion.div
-          animate={{ 
-            x: [0, -80, 0],
-            y: [0, 60, 0],
-            rotate: [0, -180, -360]
-          }}
-          transition={{ 
-            duration: 20, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="absolute top-3/4 right-1/4 w-1 h-1 bg-green-400/40 rounded-full"
-        />
-        <motion.div
-          animate={{ 
-            x: [0, 60, 0],
-            y: [0, -80, 0],
-            rotate: [0, 90, 180]
-          }}
-          transition={{ 
-            duration: 25, 
-            repeat: Infinity, 
-            ease: "linear" 
-          }}
-          className="absolute top-1/2 left-1/2 w-1.5 h-1.5 bg-purple-400/30 rounded-full"
-        />
-      </div>
+
 
 
       
-      {/* Mouse follow glow */}
-      <motion.div
-        className="fixed w-96 h-96 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-full blur-3xl pointer-events-none z-0"
-        animate={{
-          x: mousePosition.x - 192,
-          y: mousePosition.y - 192,
-        }}
-        transition={{ type: "spring", stiffness: 50, damping: 20 }}
-      />
+
       <div className="max-w-6xl mx-auto w-full">
         {/* Hero Content */}
         <div className="flex flex-col lg:flex-row items-center gap-16 mb-6">
@@ -137,7 +78,7 @@ export default function HeroSection() {
                 <ExternalLink className="h-4 w-4 opacity-60" />
               </motion.a>
               <motion.a
-                href="mailto:zhiyuan.song@ucsc.edu"
+                href="mailto:songzhiyuan98@gmail.com"
                 className="flex items-center gap-2 px-6 py-3 bg-black/10 dark:bg-white/10 hover:bg-black/20 dark:hover:bg-white/20 rounded-lg transition-all duration-300 border border-black/20 dark:border-white/10 hover:border-black/30 dark:hover:border-white/20"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
