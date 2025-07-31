@@ -26,7 +26,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-24 bg-white dark:bg-black text-black dark:text-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">联系我</h2>
@@ -60,13 +60,13 @@ export default function ContactSection() {
               <div className="flex space-x-4">
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-accent transition-colors"
+                  className="w-10 h-10 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center hover:bg-accent transition-colors"
                 >
                   <Github className="h-5 w-5" />
                 </a>
                 <a
                   href="#"
-                  className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center hover:bg-accent transition-colors"
+                  className="w-10 h-10 rounded-full bg-black dark:bg-white text-white dark:text-black flex items-center justify-center hover:bg-accent transition-colors"
                 >
                   <Linkedin className="h-5 w-5" />
                 </a>
@@ -78,7 +78,7 @@ export default function ContactSection() {
             <h3 className="text-2xl font-bold mb-6">发送消息</h3>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="name" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   姓名
                 </label>
                 <input
@@ -88,12 +88,12 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-accent bg-white dark:bg-gray-800 text-black dark:text-white"
                 />
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   邮箱
                 </label>
                 <input
@@ -103,12 +103,12 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-accent bg-white dark:bg-gray-800 text-black dark:text-white"
                 />
               </div>
 
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                   消息
                 </label>
                 <textarea
@@ -118,7 +118,7 @@ export default function ContactSection() {
                   onChange={handleChange}
                   required
                   rows={5}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-accent"
+                  className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-accent bg-white dark:bg-gray-800 text-black dark:text-white"
                 ></textarea>
               </div>
 
